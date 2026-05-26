@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 8,
+    "category": "schedule",
+    "source": "TCB_Horaires_Detailles_Saisons.pdf",
+    "description": "Horaires détaillés des croisières par saison"
+  },
+  "chunks": [
+    {
+      "id": "sched-001",
+      "title": "Haute saison - Horaires généraux (Avril à Octobre)",
+      "content": "En haute saison (avril à octobre), les croisières partent toutes les 30 minutes de 10h00 à 22h00. Un départ toutes les demi-heures, ce qui laisse beaucoup de flexibilité aux visiteurs. Pas besoin de réserver un créneau précis, le billet est valable 2 ans et donne accès coupe-file.",
+      "category": "schedule",
+      "subcategory": "high_season",
+      "keywords": ["haute saison", "avril", "octobre", "30 minutes", "10h", "22h", "horaires", "été"],
+      "season": "high",
+      "months": ["avril", "mai", "juin", "juillet", "août", "septembre", "octobre"]
+    },
+    {
+      "id": "sched-002",
+      "title": "Haute saison - Extensions soirée (Avril à Août)",
+      "content": "D'avril à fin août, départ supplémentaire à 22h30 (sauf jours de semaine en mai). En juillet et août, des départs tardifs à 23h00 sont ajoutés les dates clés : Juillet : 4, 11, 18, 25. Août : 1, 8, 14, 15, 22. Ces créneaux tardifs sont parfaits pour les croisières nocturnes avec les illuminations de Paris.",
+      "category": "schedule",
+      "subcategory": "high_season_extended",
+      "keywords": ["22h30", "23h", "nocturne", "illuminations", "juillet", "août", "soirée", "tardif"],
+      "season": "high",
+      "months": ["avril", "mai", "juin", "juillet", "août"]
+    },
+    {
+      "id": "sched-003",
+      "title": "Haute saison - Fin de saison (29 Août au 1er Novembre)",
+      "content": "Du 29 août au 1er novembre, le dernier départ est maintenu à 22h00 (pas d'extension 22h30 ou 23h). Les horaires restent toutes les 30 minutes de 10h00 à 22h00.",
+      "category": "schedule",
+      "subcategory": "high_season_end",
+      "keywords": ["septembre", "octobre", "22h", "fin saison"],
+      "season": "high",
+      "months": ["septembre", "octobre"]
+    },
+    {
+      "id": "sched-004",
+      "title": "Basse saison - Horaires généraux (Novembre à Mars)",
+      "content": "En basse saison (novembre à mars), les croisières partent toutes les 45 minutes de 10h15 à 21h30. À partir de 16h00, la fréquence passe à un départ toutes les 30 minutes pour optimiser les soirées. Pendant les vacances scolaires, un bateau supplémentaire est ajouté à 22h00.",
+      "category": "schedule",
+      "subcategory": "low_season",
+      "keywords": ["basse saison", "novembre", "mars", "45 minutes", "10h15", "21h30", "hiver"],
+      "season": "low",
+      "months": ["novembre", "décembre", "janvier", "février", "mars"]
+    },
+    {
+      "id": "sched-005",
+      "title": "Durée et modalités de la croisière",
+      "content": "La promenade dure environ 1 heure (1h10 de navigation effective), sans escale. C'est une boucle complète : départ et retour au même point (Port de la Conférence, Pont de l'Alma). Le billet est valable 2 ans, non daté, offrant une liberté totale. Pas besoin de réserver un créneau horaire.",
+      "category": "schedule",
+      "subcategory": "duration",
+      "keywords": ["1 heure", "1h10", "durée", "sans escale", "boucle", "2 ans", "validité", "liberté"],
+      "validity_years": 2
+    },
+    {
+      "id": "sched-006",
+      "title": "Embarquement et accès",
+      "content": "L'embarquement se fait au Port de la Conférence, Pont de l'Alma, Rive Droite (75008 Paris). Accès direct à la file d'embarquement grâce au coupe-file inclus avec le billet. Il est conseillé de se présenter environ 20 minutes avant le départ muni de son e-billet (QR code).",
+      "category": "schedule",
+      "subcategory": "boarding",
+      "keywords": ["embarquement", "port de la conférence", "pont de l'alma", "coupe-file", "20 minutes", "e-billet", "QR code"]
+    },
+    {
+      "id": "sched-007",
+      "title": "Commentaires audio à bord",
+      "content": "Des commentaires audio sont disponibles à bord en plusieurs langues : français, anglais, chinois, et d'autres langues (12 langues au total). Ils accompagnent la navigation et donnent des informations sur chaque monument visible depuis le bateau.",
+      "category": "schedule",
+      "subcategory": "onboard",
+      "keywords": ["audio", "commentaires", "langues", "français", "anglais", "chinois", "12 langues", "monuments"]
+    },
+    {
+      "id": "sched-008",
+      "title": "Sièges et confort",
+      "content": "Le bateau dispose de sièges intérieurs et extérieurs. Les passagers peuvent choisir selon la météo et leurs préférences. Les places extérieures offrent une vue panoramique, tandis que l'intérieur est chauffé en hiver et climatisé en été.",
+      "category": "schedule",
+      "subcategory": "comfort",
+      "keywords": ["sièges", "intérieur", "extérieur", "confort", "panoramique", "chauffé", "climatisé"]
+    }
+  ]
+}

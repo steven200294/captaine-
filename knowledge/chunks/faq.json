@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 10,
+    "category": "faq",
+    "source": "Synthèse de tous les documents",
+    "description": "FAQ générée à partir de toute la documentation — questions fréquentes des clients"
+  },
+  "chunks": [
+    {
+      "id": "faq-001",
+      "title": "Combien de temps dure la croisière ?",
+      "content": "La croisière dure environ 1 heure (1h10 de navigation effective). C'est une boucle complète sans escale : départ et retour au Port de la Conférence (Pont de l'Alma). Vous verrez le Louvre, Notre-Dame, l'Île Saint-Louis, le Musée d'Orsay et la Tour Eiffel.",
+      "category": "faq",
+      "subcategory": "duration",
+      "keywords": ["durée", "combien de temps", "1 heure", "sans escale"],
+      "question": "Combien de temps dure la croisière ?",
+      "answer": "Environ 1 heure (1h10 de navigation). Boucle complète sans escale."
+    },
+    {
+      "id": "faq-002",
+      "title": "Où se trouve l'embarquement ?",
+      "content": "L'embarquement se fait au Port de la Conférence, Pont de l'Alma, Rive Droite, 75008 Paris. Métro : Ligne 9, station Alma-Marceau. RER C : station Pont de l'Alma. Bus : lignes 28, 42, 49, 63, 72, 80, 83, 92. Parking gratuit sur le quai pendant la croisière. Présentez-vous 20 minutes avant avec votre QR code.",
+      "category": "faq",
+      "subcategory": "location",
+      "keywords": ["où", "embarquement", "adresse", "comment venir", "métro", "parking"],
+      "question": "Où se trouve l'embarquement ?",
+      "answer": "Port de la Conférence, Pont de l'Alma, 75008 Paris. Métro Alma-Marceau (L9) ou RER C Pont de l'Alma."
+    },
+    {
+      "id": "faq-003",
+      "title": "Combien de temps le billet est-il valable ?",
+      "content": "Les billets sont valables 2 ans à compter de la date d'achat. Ils ne sont pas datés, ce qui vous offre une liberté totale pour choisir votre jour de croisière. Pas besoin de réserver un créneau, présentez-vous simplement au quai avec votre QR code.",
+      "category": "faq",
+      "subcategory": "validity",
+      "keywords": ["validité", "2 ans", "non daté", "expiration", "combien de temps valable"],
+      "question": "Combien de temps le billet est-il valable ?",
+      "answer": "2 ans. Le billet n'est pas daté, venez quand vous voulez."
+    },
+    {
+      "id": "faq-004",
+      "title": "Peut-on annuler ou se faire rembourser ?",
+      "content": "Non. Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux activités de loisirs. Toute commande est ferme et définitive. En cas de force majeure (crue de la Seine), un report de date est proposé mais pas de remboursement. Le billet étant valable 2 ans, la flexibilité est déjà intégrée.",
+      "category": "faq",
+      "subcategory": "cancellation",
+      "keywords": ["annuler", "rembourser", "annulation", "remboursement", "rétractation"],
+      "question": "Peut-on annuler ou se faire rembourser ?",
+      "answer": "Non, les commandes sont définitives. Pas de remboursement. En cas de crue, report de date possible. Le billet est valable 2 ans."
+    },
+    {
+      "id": "faq-005",
+      "title": "Comment fonctionne l'eSIM ?",
+      "content": "Après votre achat, vous recevez par email un QR code d'activation eSIM. Scannez-le avec votre téléphone compatible eSIM pour activer immédiatement votre forfait data (3Go ou 10Go selon le pack). Couverture : UK et toute l'Europe pendant 30 jours. Fournisseur : BNESIM. Important : vérifiez que votre téléphone est compatible eSIM avant l'achat. L'activation et le support sont assurés par BNESIM.",
+      "category": "faq",
+      "subcategory": "esim",
+      "keywords": ["esim", "comment", "activation", "QR code", "compatible", "3go", "10go", "europe"],
+      "question": "Comment fonctionne l'eSIM ?",
+      "answer": "Vous recevez un QR code par email. Scannez-le pour activer 3Go ou 10Go de data en Europe/UK pendant 30 jours. Vérifiez la compatibilité eSIM de votre téléphone avant achat."
+    },
+    {
+      "id": "faq-006",
+      "title": "Comment récupérer les macarons ?",
+      "content": "Les macarons sont à retirer à la boutique Makdamia Paris (7ème arrondissement), située face à l'embarcadère. Présentez le QR code reçu par email. Respectez les horaires d'ouverture de la boutique (consultables sur leur page Google). Si vous ne récupérez pas vos macarons pendant la période de validité, ils sont considérés comme consommés. Macarons disponibles uniquement pour les adultes.",
+      "category": "faq",
+      "subcategory": "macarons",
+      "keywords": ["macarons", "récupérer", "retrait", "makdamia", "boutique", "QR code", "horaires"],
+      "question": "Comment récupérer les macarons ?",
+      "answer": "Rendez-vous à la boutique Makdamia Paris (7ème, face à l'embarcadère) avec votre QR code. Respectez les horaires d'ouverture."
+    },
+    {
+      "id": "faq-007",
+      "title": "Y a-t-il un tarif enfant ?",
+      "content": "Oui. Enfant (moins de 13 ans) : 8€ pour la croisière. Moins de 4 ans : Gratuit. Les enfants n'ont pas accès aux macarons ni à l'eSIM (inclus uniquement pour les adultes). Le Pack Family (65€) comprend 2 adultes + 2 enfants + coffret 7 macarons + 2 eSIM, c'est l'offre la plus avantageuse pour les familles.",
+      "category": "faq",
+      "subcategory": "pricing",
+      "keywords": ["enfant", "tarif", "gratuit", "4 ans", "13 ans", "famille", "prix"],
+      "question": "Y a-t-il un tarif enfant ?",
+      "answer": "Enfant <13 ans : 8€. Moins de 4 ans : Gratuit. Pack Family (2A+2E) : 65€."
+    },
+    {
+      "id": "faq-008",
+      "title": "Quels moyens de paiement sont acceptés ?",
+      "content": "The Captain Boat accepte : les cartes bancaires (Visa, Mastercard, Amex) via Stripe, les Chèques-Vacances ANCV Connect, Alipay pour la clientèle asiatique, Apple Pay et Google Pay. Les données de paiement ne transitent jamais par nos serveurs, elles sont traitées directement par Stripe et ANCV.",
+      "category": "faq",
+      "subcategory": "payment",
+      "keywords": ["paiement", "carte", "ANCV", "alipay", "apple pay", "google pay", "stripe"],
+      "question": "Quels moyens de paiement sont acceptés ?",
+      "answer": "Carte bancaire (Visa/MC/Amex), ANCV Connect, Alipay, Apple Pay, Google Pay."
+    },
+    {
+      "id": "faq-009",
+      "title": "Faut-il réserver à l'avance ?",
+      "content": "Non, il n'est pas nécessaire de réserver un créneau horaire. Le billet est valable 2 ans et donne un accès coupe-file au Port de la Conférence. Présentez-vous simplement 20 minutes avant un départ avec votre QR code. En haute saison : départs toutes les 30 min (10h-22h). En basse saison : toutes les 45 min (10h15-21h30).",
+      "category": "faq",
+      "subcategory": "booking",
+      "keywords": ["réserver", "avance", "réservation", "obligatoire", "coupe-file", "flexible"],
+      "question": "Faut-il réserver à l'avance ?",
+      "answer": "Non. Venez quand vous voulez avec votre QR code. Accès coupe-file inclus. Départs toutes les 30min en haute saison."
+    },
+    {
+      "id": "faq-010",
+      "title": "Quelle est la meilleure offre / que recommandez-vous ?",
+      "content": "Cela dépend de votre profil : Pour un budget serré → La Croisière Classique (17€). Pour les gourmands → Croisière & Macarons (19€). Pour les voyageurs connectés → Croisière & eSIM (19€). Pour tout avoir → Le Pack Capitaine (25€, meilleur rapport qualité-prix). Pour les familles → Pack Family (65€, économie de 25€). Pour les exigeants qui ont besoin de beaucoup de data → Pack Privilège 10Go (28€).",
+      "category": "faq",
+      "subcategory": "recommendation",
+      "keywords": ["recommander", "meilleure offre", "conseil", "quel pack", "choisir", "comparaison"],
+      "question": "Quelle offre recommandez-vous ?",
+      "answer": "Budget : Classique 17€. Gourmand : Macarons 19€. Connecté : eSIM 19€. Tout inclus : Pack Capitaine 25€. Famille : Pack Family 65€. Premium : Privilège 28€."
+    }
+  ]
+}

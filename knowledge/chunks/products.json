@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 6,
+    "category": "products",
+    "source": "catalogue produits The Captain Boat.pdf",
+    "description": "Catalogue officiel des offres et produits The Captain Boat"
+  },
+  "chunks": [
+    {
+      "id": "prod-001",
+      "title": "La Croisière Classique",
+      "content": "Produit phare de The Captain Boat. Une immersion d'une heure sur la Seine pour admirer les plus beaux monuments de Paris. Commentaires audio inclus en 12 langues. Prix adulte : 17€ (ancien prix 20€). Prix enfant (moins de 13 ans) : 8€ (ancien prix 10€). Moins de 4 ans : Gratuit. Durée : 1 heure. Lieu d'embarquement : Port de la Conférence, Pont de l'Alma. Inclus : commentaires audio, sièges intérieur/extérieur. Options premium disponibles : Coupe de Champagne (12€), Boîte Premium 12 macarons (18€).",
+      "category": "products",
+      "subcategory": "cruise",
+      "keywords": ["croisière", "classique", "seine", "audio", "monuments", "paris", "bateau", "17€", "enfant", "8€"],
+      "slug": "croisiere-classique",
+      "price_adult": 1700,
+      "price_child": 800,
+      "includes_esim": false,
+      "includes_macarons": false
+    },
+    {
+      "id": "prod-002",
+      "title": "Croisière & Macarons Artisanaux",
+      "content": "L'élégance de la navigation alliée à la finesse de la pâtisserie française. Inclut la croisière 1h + un coffret de 2 macarons artisanaux Makdamia pour les adultes. Retrait via QR code en boutique partenaire Makdamia Paris (Paris 07) face à l'embarcadère. Prix adulte : 19€ (ancien prix 26€). Prix enfant (moins de 13 ans) : 8€ (croisière seule). Moins de 4 ans : Gratuit. Macarons valables pour les adultes uniquement. Le client doit respecter les horaires d'ouverture de la boutique Makdamia.",
+      "category": "products",
+      "subcategory": "cruise_macarons",
+      "keywords": ["croisière", "macarons", "makdamia", "artisanaux", "pâtisserie", "19€", "coffret", "boutique"],
+      "slug": "croisiere-macarons",
+      "price_adult": 1900,
+      "price_child": 800,
+      "includes_esim": false,
+      "includes_macarons": true
+    },
+    {
+      "id": "prod-003",
+      "title": "Croisière & eSIM Connect",
+      "content": "Naviguez et restez connecté avec une eSIM 3Go valable en UK & Europe pendant 30 jours. Combine la croisière 1h sur la Seine + une eSIM data 3Go. L'eSIM est réservée aux adultes uniquement. Activation immédiate par QR code reçu par email après achat. Prix adulte : 19€ (ancien prix 26€). Prix enfant (moins de 13 ans) : 8€ (croisière seule). Moins de 4 ans : Gratuit. Le client doit vérifier la compatibilité de son appareil avec eSIM avant achat. Fournisseur eSIM : BNESIM.",
+      "category": "products",
+      "subcategory": "cruise_esim",
+      "keywords": ["croisière", "esim", "3go", "europe", "uk", "connecté", "data", "30 jours", "19€", "bnesim"],
+      "slug": "croisiere-esim",
+      "price_adult": 1900,
+      "price_child": 800,
+      "includes_esim": true,
+      "includes_macarons": false,
+      "esim_data": "3gb",
+      "esim_duration_days": 30,
+      "esim_coverage": "UK & Europe"
+    },
+    {
+      "id": "prod-004",
+      "title": "Le Pack Capitaine (Complet)",
+      "content": "L'offre ultime tout inclus : Croisière 1h sur la Seine + Macarons artisanaux Makdamia + eSIM 3Go (UK & Europe, 30 jours). Macarons et eSIM pour adultes uniquement. C'est le pack le plus complet pour découvrir Paris connecté et gourmand. Prix adulte : 25€ (ancien prix 32€). Prix enfant (moins de 13 ans) : 8€ (croisière seule). Moins de 4 ans : Gratuit. Économie par rapport à l'achat séparé.",
+      "category": "products",
+      "subcategory": "pack_complete",
+      "keywords": ["pack", "capitaine", "complet", "tout inclus", "croisière", "macarons", "esim", "25€", "meilleure offre"],
+      "slug": "pack-capitaine",
+      "price_adult": 2500,
+      "price_child": 800,
+      "includes_esim": true,
+      "includes_macarons": true,
+      "esim_data": "3gb",
+      "esim_duration_days": 30
+    },
+    {
+      "id": "prod-005",
+      "title": "Pack Family (2 Adultes + 2 Enfants)",
+      "content": "L'offre idéale pour les familles/tribus. Pack complet comprenant : 4 billets Croisière (2 adultes + 2 enfants) + 1 coffret de 7 macarons artisanaux Makdamia + 2 eSIM 3Go (UK & Europe, 30 jours). Macarons et eSIM inclus pour les adultes. Prix du pack : 65€ (ancien prix 90€). Économie de 25€ sur le tarif public. Pas de prix unitaire, c'est un forfait famille.",
+      "category": "products",
+      "subcategory": "pack_family",
+      "keywords": ["family", "famille", "pack", "4 billets", "enfants", "macarons", "esim", "65€", "économie", "tribu"],
+      "slug": "pack-family",
+      "price_pack": 6500,
+      "includes_esim": true,
+      "includes_macarons": true,
+      "esim_data": "3gb",
+      "esim_quantity": 2,
+      "passengers": {"adults": 2, "children": 2}
+    },
+    {
+      "id": "prod-006",
+      "title": "Pack Privilège \"Expert Paris\"",
+      "content": "Pour les voyageurs exigeants : Croisière promenade 1h sur la Seine + eSIM 10Go (UK & Europe, 30 jours). Une connectivité haute performance pour une expérience parisienne augmentée. Le pack premium pour ceux qui ont besoin de plus de data. Prix adulte : 28€ (ancien prix 34€). Pas de tarif enfant spécifique pour ce pack premium.",
+      "category": "products",
+      "subcategory": "pack_premium",
+      "keywords": ["privilège", "premium", "expert", "10go", "esim", "haute performance", "28€", "exigeants"],
+      "slug": "pack-privilege",
+      "price_adult": 2800,
+      "includes_esim": true,
+      "includes_macarons": false,
+      "esim_data": "10gb",
+      "esim_duration_days": 30
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 4,
+    "category": "about",
+    "source": "A PROPOS THE CAPTAIN BOAT.pdf",
+    "description": "Présentation de l'entreprise, historique, valeurs et engagement"
+  },
+  "chunks": [
+    {
+      "id": "about-001",
+      "title": "Présentation The Captain Boat",
+      "content": "The CAPTAIN Boat est une enseigne de Paris City Expert, qui accompagne les voyageurs du monde entier depuis plus de 20 ans dans la découverte de Paris. The Captain Boat réinvente la croisière sur la Seine en offrant une expérience fluide, connectée et résolument premium. Mission : transformer une simple promenade en bateau en une immersion totale dans l'art de vivre à la française.",
+      "category": "about",
+      "subcategory": "presentation",
+      "keywords": ["the captain boat", "paris city expert", "20 ans", "seine", "premium", "mission"]
+    },
+    {
+      "id": "about-002",
+      "title": "Expertise et liberté",
+      "content": "Forts de deux décennies d'expérience, The Captain Boat a supprimé toutes les contraintes. Les billets sont valables 2 ans et offrent un accès coupe-file direct au Port de la Conférence. Pas de réservation obligatoire, pas d'attente, juste le plaisir de naviguer quand Paris vous appelle. Liberté totale pour les voyageurs.",
+      "category": "about",
+      "subcategory": "expertise",
+      "keywords": ["2 ans", "coupe-file", "liberté", "pas de réservation", "flexibilité", "expertise"]
+    },
+    {
+      "id": "about-003",
+      "title": "Gastronomie et connectivité",
+      "content": "The Captain Boat enrichit la croisière avec des macarons artisanaux (partenariat Makdamia Paris) et une solution eSIM mondiale intégrée (BNESIM). Les voyageurs peuvent capturer, partager et savourer l'instant en temps réel, sans aucune limite de connexion. Une alliance unique entre gastronomie française et technologie moderne.",
+      "category": "about",
+      "subcategory": "value_proposition",
+      "keywords": ["macarons", "esim", "connectivité", "gastronomie", "makdamia", "bnesim", "technologie"]
+    },
+    {
+      "id": "about-004",
+      "title": "Engagement qualité et paiement",
+      "content": "The Captain Boat garantit un service irréprochable pour les croisières de jour comme de nuit (illuminations nocturnes). La plateforme sécurisée accepte les paiements internationaux et les solutions mobiles les plus modernes. Paiements acceptés : ANCV Connect, Stripe (CB), Alipay, WeChat Pay. Sécurité et tranquillité d'esprit dès la réservation.",
+      "category": "about",
+      "subcategory": "quality",
+      "keywords": ["qualité", "sécurité", "paiement", "international", "nocturne", "illuminations"]
+    }
+  ]
+}

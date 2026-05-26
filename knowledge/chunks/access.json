@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 5,
+    "category": "access",
+    "source": "Plan_Acces_Transports.pdf + Parcours_Croisere.pdf",
+    "description": "Plan d'accès, transports et itinéraire de la croisière"
+  },
+  "chunks": [
+    {
+      "id": "access-001",
+      "title": "Lieu d'embarquement",
+      "content": "L'embarquement se fait aux Bateaux-Mouches, Port de la Conférence, Pont de l'Alma, Rive Droite, 75008 Paris. C'est le point de départ et d'arrivée de toutes les croisières The Captain Boat. Se présenter 20 minutes avant le départ avec son e-billet (QR code). Accès direct à la file coupe-file.",
+      "category": "access",
+      "subcategory": "location",
+      "keywords": ["embarquement", "port de la conférence", "pont de l'alma", "bateaux-mouches", "75008", "rive droite", "adresse"],
+      "address": "Port de la Conférence, Pont de l'Alma, Rive Droite, 75008 Paris",
+      "coordinates": {"lat": 48.8642, "lng": 2.3017}
+    },
+    {
+      "id": "access-002",
+      "title": "Accès en métro et RER",
+      "content": "Pour venir en métro : Ligne 9, station Alma-Marceau (la plus proche). Lignes 1 et 13, station Champs-Élysées Clémenceau (10 min à pied). Pour venir en RER : RER C, station Pont de l'Alma (accès direct au quai).",
+      "category": "access",
+      "subcategory": "transport_metro",
+      "keywords": ["métro", "RER", "alma-marceau", "ligne 9", "RER C", "champs-élysées", "transport"]
+    },
+    {
+      "id": "access-003",
+      "title": "Accès en bus et voiture",
+      "content": "En bus : Lignes 28, 42, 49, 63, 72, 80, 83, 92 desservent le quartier. En voiture : Un parking est mis gratuitement à disposition sur le quai pendant toute la durée de la croisière (sous réserve de disponibilité). Parking gratuit pour les clients.",
+      "category": "access",
+      "subcategory": "transport_bus_car",
+      "keywords": ["bus", "voiture", "parking", "gratuit", "lignes", "quai"]
+    },
+    {
+      "id": "access-004",
+      "title": "Itinéraire de la croisière - Monuments",
+      "content": "L'itinéraire de la croisière passe devant les monuments suivants dans cet ordre : 1. Départ du Pont de l'Alma (Rive Droite). 2. Le Louvre : ancienne résidence royale, aujourd'hui plus grand musée du monde. 3. Île de la Cité : la Conciergerie et la Cathédrale Notre-Dame. 4. Île Saint-Louis : point de demi-tour, cœur authentique de Paris. 5. Musée d'Orsay : ancienne gare transformée en temple de l'impressionnisme. 6. Tour Eiffel : passage majestueux au pied de la Dame de Fer. 7. Retour au Pont de l'Alma.",
+      "category": "access",
+      "subcategory": "itinerary",
+      "keywords": ["itinéraire", "monuments", "louvre", "notre-dame", "tour eiffel", "musée d'orsay", "île de la cité", "parcours"]
+    },
+    {
+      "id": "access-005",
+      "title": "Retrait des macarons - Boutique Makdamia",
+      "content": "Les macarons inclus dans les packs sont à retirer à la boutique Makdamia Paris, située dans le 7ème arrondissement, face à l'embarcadère. Le retrait se fait sur présentation du QR code reçu par email. Le client doit respecter les horaires d'ouverture de la boutique (affichés sur la page Google de Makdamia). En cas de non-retrait pendant la période de validité du pack, le produit est considéré comme consommé.",
+      "category": "access",
+      "subcategory": "macarons_pickup",
+      "keywords": ["macarons", "makdamia", "boutique", "retrait", "QR code", "7ème", "paris 07", "horaires"]
+    }
+  ]
+}

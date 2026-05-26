@@ -1,0 +1,58 @@
+{
+  "formatVersion": 1,
+  "passTypeIdentifier": "pass.com.thecaptainboat.ticket",
+  "teamIdentifier": "TEAM_ID_HERE",
+  "organizationName": "The Captain Boat",
+  "description": "Billet Croisiere The Captain Boat",
+  "foregroundColor": "rgb(255, 255, 255)",
+  "backgroundColor": "rgb(28, 53, 94)",
+  "labelColor": "rgb(255, 184, 0)",
+  "logoText": "The Captain Boat",
+  "generic": {
+    "primaryFields": [
+      {
+        "key": "orderNumber",
+        "label": "N° COMMANDE",
+        "value": ""
+      }
+    ],
+    "secondaryFields": [
+      {
+        "key": "passengers",
+        "label": "PASSAGERS",
+        "value": ""
+      },
+      {
+        "key": "date",
+        "label": "DATE",
+        "value": ""
+      }
+    ],
+    "auxiliaryFields": [
+      {
+        "key": "location",
+        "label": "EMBARQUEMENT",
+        "value": "Port de la Bourdonnais, Paris"
+      }
+    ],
+    "backFields": [
+      {
+        "key": "info",
+        "label": "Informations pratiques",
+        "value": "Presentez ce pass a l'embarquement.\n\nPort de la Bourdonnais, 75007 Paris\nMetro : Trocadero (L6/L9) ou Bir-Hakeim (L6)\nRER C : Champ de Mars\n\nContactez-nous : contact@thecaptainboat.com"
+      }
+    ]
+  },
+  "barcode": {
+    "message": "",
+    "format": "PKBarcodeFormatQR",
+    "messageEncoding": "iso-8859-1"
+  },
+  "barcodes": [
+    {
+      "message": "",
+      "format": "PKBarcodeFormatQR",
+      "messageEncoding": "iso-8859-1"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+---
+description: Règles pour les composants UI et le design system
+globs: "components/**/*.tsx"
+---
+
+# Design System — The Captain Boat
+
+## Tokens couleurs
+
+```
+Navy primary: #1c355e (headings, buttons, brand)
+Navy dark: #152846 (hover states)
+Navy light: #2d4f87 (gradients)
+Gold CTA: #FFB800 (primary CTA buttons)
+Gold hover: #e6a600
+Red urgency: #c3171d (flash sales, discounts)
+Red light: #ffebee (alert backgrounds)
+Green success: #28a745 (badges, confirmations)
+Slate 900: #0f172a (body text)
+Slate 700: #475569 (secondary text)
+Slate 500: #64748b (muted text)
+BG primary: #f8f9fa (page backgrounds)
+BG card: #ffffff (card backgrounds)
+```
+
+## Typographie
+- Sans-serif : Geist (var(--font-geist-sans)) — corps, UI
+- Serif : Playfair Display — titres marketing, hero
+- Mono : Geist Mono — codes, compteurs
+
+## Composants UI réutilisables (components/ui/)
+
+Chaque composant UI doit :
+1. Accepter `className` pour extension via Tailwind
+2. Utiliser les tokens de couleur (pas de hex en dur dans les composants métier)
+3. Avoir des variants via props (size, variant, color)
+4. Être accessible (aria-labels, keyboard navigation)
+
+## Patterns récurrents
+- Cards : `rounded-2xl shadow-[0_2px_20px_rgb(0,0,0,0.03)] bg-white p-8`
+- Micro-labels : `text-[10px] font-bold uppercase tracking-widest`
+- CTA primary : `bg-[#FFB800] hover:bg-[#e6a600] text-[#1c355e] font-extrabold py-4 rounded-xl`
+- CTA secondary : `bg-[#1c355e] hover:bg-[#152846] text-white font-bold py-4 rounded-xl`
+- Input : `border border-gray-200 rounded-lg px-4 py-3 text-sm focus:border-[#1c355e] focus:ring-1 focus:ring-[#1c355e]`
+- Badge green : `bg-green-50 text-green-700 text-[10px] font-bold px-3 py-1.5 rounded-full`
+- Badge red : `bg-red-50 text-red-700 text-[10px] font-bold px-3 py-1.5 rounded-full`
+
+## Responsive
+- Mobile-first
+- Breakpoints : sm (640px), md (768px), lg (1024px), xl (1280px)
+- Container : `container mx-auto px-4 lg:px-8 max-w-5xl` (ou max-w-7xl pour admin)
+- Stack vertical mobile → horizontal desktop
+
+## Accessibilité
+- Tous les boutons interactifs : aria-label si pas de texte visible
+- Focus visible sur tous les éléments interactifs
+- Contraste minimum WCAG AA (4.5:1 text, 3:1 large text)
+- Images : alt text descriptif (pas "image")

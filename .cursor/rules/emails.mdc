@@ -1,0 +1,54 @@
+---
+description: Email system patterns - templates, sender, triggers
+globs: shared/emails/**,api/services/email-triggers.ts,app/api/emails/**
+alwaysApply: false
+---
+
+# Email System — Architecture
+
+## Structure
+```
+shared/emails/
+  sender.ts          → Transport (SMTP dev / Resend prod)
+  index.ts           → Re-exports
+  components/
+    base.ts          → emailWrapper, emailButton, emailDivider, emailInfoRow, emailHeroImage, emailProductCard
+  templates/
+    reservation-confirmation.ts
+    esim-activation.ts
+    reminder.ts
+    post-cruise.ts   → Funnel: avis + upsell intelligent + parrainage
+api/services/
+  email-triggers.ts  → Connects domain events to email templates
+```
+
+## Conventions
+
+1. **Template = pure function** → `(data) => { subject, html }` — no side effects
+2. **Sender is transport-agnostic** → dev=Mailpit SMTP, prod=Resend
+3. **Trigger = glue layer** → maps domain objects to template data shapes
+4. **Fire-and-forget** → emails never block the main flow, `.catch()` errors
+5. **No React Email** → templates are string-based HTML for zero-dep, fast rendering
+6. **Components are composable** → `emailWrapper`, `emailButton`, `emailInfoRow`
+
+## Adding a new email
+
+1. Create `lib/emails/templates/my-template.ts`
+2. Export interface for data + function returning `{ subject, html }`
+3. Re-export from `lib/emails/index.ts`
+4. Add trigger function in `services/email-triggers.ts`
+5. Call trigger in the relevant service (fire-and-forget with `.catch()`)
+6. Add preview case in `app/api/emails/preview/route.ts`
+
+## Testing locally
+
+```bash
+mailpit                  # Start Mailpit (SMTP :1025, UI :8025)
+# Then trigger a checkout → email appears at http://localhost:8025
+# Or use: curl -X POST localhost:3000/api/emails/preview -d '{"template":"reservation-confirmation","data":{...},"send":true}'
+```
+
+## Variables d'environnement
+- `RESEND_API_KEY` — si défini et != re_xxx, utilise Resend
+- `EMAIL_FROM` — expéditeur (default: The Captain Boat <noreply@thecaptainboat.com>)
+- `SMTP_HOST` / `SMTP_PORT` — pour Mailpit en dev (default: localhost:1025)

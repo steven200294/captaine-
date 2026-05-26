@@ -1,0 +1,78 @@
+---
+description: Guide de planification pour les sessions de développement
+globs: "**/*"
+---
+
+# Planning & One-Shot Sessions
+
+## Approche one-shot
+
+Chaque session de développement doit pouvoir être exécutée de manière autonome.
+Avant de coder, toujours :
+
+1. **Lire le PRD** (`docs/PRD.md`) pour le contexte global
+2. **Identifier le sprint/module** concerné
+3. **Vérifier les dépendances** (tables DB existantes, services déjà implémentés)
+4. **Implémenter de bout en bout** (DB → Service → API → UI)
+
+## Ordre d'implémentation par feature
+
+Pour chaque fonctionnalité, suivre cet ordre :
+
+```
+1. Migration Supabase (schema SQL)
+2. Types TypeScript (types/)
+3. Schéma Zod (lib/validations/)
+4. Service métier (services/)
+5. API Route (app/api/)
+6. Composant(s) UI (components/)
+7. Page / intégration (app/)
+8. Test unitaire (tests/unit/)
+9. Test E2E si parcours critique (tests/e2e/)
+```
+
+## Checklist avant de considérer une feature "done"
+
+- [ ] Types stricts (pas de `any`, pas de `as` abusifs)
+- [ ] Validation Zod sur les inputs
+- [ ] Gestion d'erreurs (try/catch, messages user-friendly)
+- [ ] RLS Supabase si nouvelle table
+- [ ] Rate limiting si nouvelle route publique
+- [ ] Mobile responsive (tester 375px)
+- [ ] Accessibilité basique (keyboard, aria-labels)
+- [ ] Pas de secrets en dur
+- [ ] Logs structurés sur les erreurs serveur
+
+## Composants réutilisables à privilégier
+
+Avant de créer un nouveau composant :
+1. Vérifier `components/ui/` pour un composant existant
+2. Vérifier si un pattern similaire existe déjà dans le projet
+3. Si nouveau : le créer dans `components/ui/` (générique) ou `components/[domain]/` (spécifique)
+
+## Ne pas réinventer
+
+- Formulaires → Zod + controlled inputs (pas de lib form pour l'instant)
+- Fetch → Utiliser directement `fetch` dans les Server Components / API routes
+- State global → React Context (déjà CartContext, ajouter si besoin)
+- Animations → Tailwind `transition-*` + `animate-*` (pas de Framer Motion sauf besoin réel)
+- Icons → lucide-react (déjà installé)
+- Charts admin → Recharts (à installer)
+
+## Gestion des migrations DB
+
+```bash
+# Créer une migration
+supabase migration new nom_descriptif
+
+# Appliquer localement
+supabase db reset
+
+# Pousser en prod
+supabase db push
+```
+
+Chaque migration doit être :
+- Idempotente si possible (IF NOT EXISTS)
+- Réversible (documenter le rollback en commentaire)
+- Nommée clairement (date auto + description)

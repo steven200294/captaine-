@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 4,
+    "category": "promotions",
+    "source": "Synthèse catalogue + politique commerciale",
+    "description": "Promotions actives et argumentaires commerciaux pour le chatbot"
+  },
+  "chunks": [
+    {
+      "id": "promo-001",
+      "title": "Vente Flash - Pack Capitaine",
+      "content": "Le Pack Capitaine est en vente flash ! Au lieu de 32€, profitez de l'offre tout inclus (Croisière + Macarons + eSIM 3Go) à seulement 25€. C'est l'offre la plus populaire : plus de 1100 avis avec une note de 4.8/5. Économie de 7€ par rapport au prix normal.",
+      "category": "promotions",
+      "subcategory": "flash_sale",
+      "keywords": ["vente flash", "promo", "pack capitaine", "25€", "réduction", "populaire"],
+      "product_slug": "pack-capitaine",
+      "discount_amount": 700,
+      "active": true
+    },
+    {
+      "id": "promo-002",
+      "title": "Économie famille - Pack Family",
+      "content": "Le Pack Family offre une économie de 25€ sur le tarif public ! Pour 65€ au lieu de 90€, obtenez 4 billets croisière (2 adultes + 2 enfants) + 1 coffret de 7 macarons + 2 eSIM 3Go. C'est le meilleur rapport qualité-prix pour les familles visitant Paris.",
+      "category": "promotions",
+      "subcategory": "family_deal",
+      "keywords": ["famille", "économie", "25€", "pack family", "4 billets", "enfants"],
+      "product_slug": "pack-family",
+      "discount_amount": 2500,
+      "active": true
+    },
+    {
+      "id": "promo-003",
+      "title": "Meilleur prix - Croisière Classique",
+      "content": "La Croisière Classique au meilleur prix : 17€ au lieu de 20€ ! C'est l'entrée de gamme idéale pour découvrir la Seine. 1h de navigation, commentaires audio en 12 langues, accès coupe-file. Plus de 1245 avis positifs (4.6/5).",
+      "category": "promotions",
+      "subcategory": "best_price",
+      "keywords": ["meilleur prix", "17€", "classique", "économique", "découverte"],
+      "product_slug": "croisiere-classique",
+      "discount_amount": 300,
+      "active": true
+    },
+    {
+      "id": "promo-004",
+      "title": "Argumentaire chatbot - Recommandation macarons",
+      "content": "Pour recommander les macarons dans une conversation : 'Rien de mieux que des macarons artisanaux Makdamia pour accompagner votre croisière ! Imaginez : vous admirez la Tour Eiffel avec un macaron fondant entre les doigts... Le coffret est inclus dans votre pack, il suffit de le retirer à la boutique Makdamia juste en face de l'embarcadère avec votre QR code. Simple et délicieux !'",
+      "category": "promotions",
+      "subcategory": "chatbot_script",
+      "keywords": ["macarons", "recommandation", "chatbot", "script", "makdamia", "tour eiffel"]
+    }
+  ]
+}

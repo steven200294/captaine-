@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 8,
+    "category": "legal",
+    "source": "documents Conformite_Juridique_V2.pdf + contenu Mentions_Legales.pdf + Contenu Politique_Generale_Vente.pdf",
+    "description": "Mentions légales, CGV, RGPD et conformité juridique"
+  },
+  "chunks": [
+    {
+      "id": "legal-001",
+      "title": "Éditeur du site - Informations société",
+      "content": "Le site www.thecaptainboat.com est édité par la société PARIS CITY EXPERT, SARL unipersonnelle au capital de 1 000€. Enseigne commerciale : The CAPTAIN Boat. Siège social : 7 Allée Saint-Exupéry, 92390 Villeneuve-la-Garenne. Immatriculée au RCS de Nanterre sous le numéro 928 329 358. Numéro de TVA intracommunautaire : FR 37 928 329 358. Contact : pariscityexpert@gmail.com | Tél : +33 7 82 86 24 36. Directeur de la publication : M. Hicham Tassefkoumte.",
+      "category": "legal",
+      "subcategory": "company_info",
+      "keywords": ["paris city expert", "SARL", "RCS", "nanterre", "villeneuve-la-garenne", "mentions légales", "éditeur"]
+    },
+    {
+      "id": "legal-002",
+      "title": "Conditions Générales de Vente - Objet",
+      "content": "Les CGV régissent la vente de packs touristiques (croisière, macarons, eSIM) via le site The CAPTAIN Boat. Tous les tarifs sont TTC. La société est titulaire d'une convention ANCV pour l'acceptation des Chèques-Vacances Connect. Paiements acceptés : ANCV Connect, Stripe (CB Visa/Mastercard/Amex), Alipay, WeChat Pay.",
+      "category": "legal",
+      "subcategory": "cgv",
+      "keywords": ["CGV", "conditions générales", "vente", "TTC", "paiement", "ANCV", "stripe"]
+    },
+    {
+      "id": "legal-003",
+      "title": "Droit de rétractation et annulation",
+      "content": "Conformément à l'article L221-28 12° du Code de la consommation, le droit de rétractation ne s'applique pas aux prestations de services d'activités de loisirs qui doivent être fournies à une date ou période déterminée. Toute commande est ferme et définitive. En cas de force majeure ou de crue de la Seine empêchant la navigation, PARIS CITY EXPERT propose exclusivement un report de date de validité des billets. Aucun remboursement monétaire ne sera effectué.",
+      "category": "legal",
+      "subcategory": "cancellation",
+      "keywords": ["rétractation", "annulation", "remboursement", "force majeure", "crue", "seine", "report", "définitive"]
+    },
+    {
+      "id": "legal-004",
+      "title": "Responsabilité et partenaires",
+      "content": "PARIS CITY EXPERT agit en tant qu'intermédiaire pour les prestations de macarons (Makdamia) et d'eSIM (BNESIM). La responsabilité de la société est limitée à la délivrance des bons de retrait ou codes d'activation. Le service eSIM (activation et support technique) est assuré directement par le prestataire BNESIM. Le client doit vérifier la compatibilité de son appareil avant tout achat d'eSIM.",
+      "category": "legal",
+      "subcategory": "liability",
+      "keywords": ["responsabilité", "intermédiaire", "makdamia", "bnesim", "partenaire", "compatibilité", "esim"]
+    },
+    {
+      "id": "legal-005",
+      "title": "Protection des données (RGPD)",
+      "content": "PARIS CITY EXPERT s'engage à une collecte et traitement conformes au RGPD. Finalité : gestion des commandes, envois des e-billets et codes eSIM, communication sur les offres (avec consentement). Conservation : données conservées 3 ans après le dernier contact commercial. Protection : les données de paiement sont traitées exclusivement par les prestataires sécurisés (Stripe, ANCV) et ne transitent jamais par les serveurs de la société. Droits : accès, rectification et effacement via pariscityexpert@gmail.com.",
+      "category": "legal",
+      "subcategory": "rgpd",
+      "keywords": ["RGPD", "données personnelles", "protection", "consentement", "3 ans", "stripe", "droits"]
+    },
+    {
+      "id": "legal-006",
+      "title": "Délivrance immédiate",
+      "content": "Tous les produits numériques (billetterie croisière et eSIM) font l'objet d'une délivrance instantanée par email dès la validation du paiement. Le client reçoit un QR Code unique lui permettant d'accéder directement au service sans passage par un guichet physique. Zéro attente.",
+      "category": "legal",
+      "subcategory": "delivery",
+      "keywords": ["délivrance", "instantanée", "immédiate", "email", "QR code", "numérique", "pas d'attente"]
+    },
+    {
+      "id": "legal-007",
+      "title": "Support client",
+      "content": "Le support client est formé pour assister les utilisateurs dans l'activation de leur eSIM et répondre à toute question logistique concernant la croisière ou le retrait des macarons. Délai de réponse sous 24h. Contact : pariscityexpert@gmail.com | +33 7 82 86 24 36.",
+      "category": "legal",
+      "subcategory": "support",
+      "keywords": ["support", "client", "assistance", "24h", "email", "téléphone", "activation", "esim"]
+    },
+    {
+      "id": "legal-008",
+      "title": "Propriété intellectuelle",
+      "content": "L'ensemble des contenus (textes, images, logos, vidéos) présents sur le site est la propriété exclusive de Paris City Expert. Toute reproduction ou représentation, totale ou partielle, est strictement interdite sans l'accord préalable écrit de l'éditeur.",
+      "category": "legal",
+      "subcategory": "intellectual_property",
+      "keywords": ["propriété intellectuelle", "copyright", "reproduction", "interdite"]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+---
+description: Module architecture - how to organize new features
+globs: 
+alwaysApply: true
+---
+
+# Module Architecture
+
+## Structure
+
+```
+web/                    Frontend (React, client-side)
+  components/           UI components
+    ai/                 Chatbot components
+    filters/            Filter sidebar components
+  contexts/             React contexts (cart, etc.)
+  hooks/                Custom React hooks
+
+api/                    Backend (server-side business logic)
+  services/             Business logic (stateless, testable)
+    reservation.ts      Booking flow orchestration
+    qr-code.ts          QR assignment + validation
+    esim.ts             BNESIM provisioning
+    email-triggers.ts   Domain events → email bridge
+
+shared/                 Cross-cutting (used by both web & api)
+  config/               Client configs (stripe, supabase)
+  emails/               Email system (templates, sender, components)
+  types/                TypeScript types
+  validations/          Zod schemas
+  offers.ts             Product offers data
+  products.ts           Product catalog data
+
+app/                    Next.js routing layer (THIN)
+  api/                  API routes → validate + call service + respond
+  (client)/             Client grouped pages
+  paiement/             Checkout flow
+```
+
+## Import Aliases (tsconfig.json)
+
+```
+@web/*     → ./web/*
+@api/*     → ./api/*
+@shared/*  → ./shared/*
+@/*        → ./*  (legacy fallback)
+```
+
+## Rules
+
+1. **app/ is thin** — validate input, call service, return response
+2. **api/services/ owns logic** — no Request/Response inside services
+3. **shared/ is infrastructure** — configs, types, utilities, emails
+4. **web/ is frontend** — components, hooks, contexts
+5. **No circular deps** — web can import shared, api can import shared, neither imports each other
+6. **Barrel exports** for modules with 3+ files (index.ts)
+
+## Import Direction
+
+```
+app/ ──→ @web/* (pages import components)
+app/ ──→ @api/* (api routes import services)
+app/ ──→ @shared/* (both can use shared)
+api/ ──→ @shared/* (services use configs, types, emails)
+web/ ──→ @shared/* (components use types, products)
+web/ ✗─→ @api/*  (NEVER import backend in frontend)
+api/ ✗─→ @web/*  (NEVER import frontend in backend)
+```
+
+## Adding a New Feature
+
+1. Needs a page? → `app/(client)/` or `app/(admin)/`
+2. Needs an API? → `app/api/feature/route.ts` (thin)
+3. Has business logic? → `api/services/feature.ts`
+4. Needs shared types? → `shared/types/`
+5. Needs validation? → `shared/validations/`
+6. Needs config? → `shared/config/`
+7. Needs UI? → `web/components/feature/`

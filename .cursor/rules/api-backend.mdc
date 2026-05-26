@@ -1,0 +1,141 @@
+---
+description: Règles pour les API routes et la logique serveur
+globs: "app/api/**/*.ts,services/**/*.ts"
+---
+
+# API & Backend — The Captain Boat
+
+## API Routes (app/api/)
+
+### Structure d'une route
+
+```typescript
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+
+const bodySchema = z.object({
+  // ...
+});
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const parsed = bodySchema.safeParse(body);
+    
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, error: 'Validation failed', details: parsed.error.flatten() },
+        { status: 400 }
+      );
+    }
+
+    // Business logic via services/
+    const result = await someService(parsed.data);
+
+    return NextResponse.json({ success: true, data: result });
+  } catch (error) {
+    console.error('[API_NAME]', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+```
+
+### Sécurité API
+- Valider TOUS les inputs (body, query params, headers)
+- Vérifier l'authentification admin via Supabase session
+- Webhooks : vérifier la signature (Stripe: `stripe.webhooks.constructEvent`)
+- Rate limit sur les routes publiques (checkout, chat, reservations lookup)
+- Ne jamais exposer les IDs internes Supabase aux clients non-auth
+
+### Montants
+- TOUJOURS en centimes (int) côté serveur et DB
+- Conversion vers euros uniquement pour l'affichage client
+- Calcul du total serveur-side avant création PaymentIntent
+- Double-vérification : montant client envoyé vs montant calculé serveur
+
+## Services (services/)
+
+Les services contiennent la logique métier pure. Pas de req/res ici.
+
+```typescript
+// services/reservation.ts
+export async function createReservation(data: CreateReservationInput): Promise<Reservation> {
+  // 1. Créer la réservation en DB
+  // 2. Attribuer les QR codes
+  // 3. Provisionner eSIM si nécessaire
+  // 4. Générer le PDF
+  // 5. Envoyer l'email
+  // Retourner la réservation complète
+}
+```
+
+### Principes services
+- Une fonction = une responsabilité
+- Toujours retourner un type explicite (pas de `any`)
+- Gestion d'erreurs explicite (pas de throw silencieux)
+- Transactions DB quand opérations multiples liées (Supabase RPC si besoin)
+- Idempotence : vérifier si déjà traité avant d'agir (via stripe_payment_intent_id)
+
+## Supabase
+
+### Client
+
+```typescript
+// lib/supabase/server.ts — pour API routes et Server Components
+import { createClient } from '@supabase/supabase-js';
+
+export function createServiceClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
+
+// lib/supabase/client.ts — pour le navigateur
+import { createBrowserClient } from '@supabase/ssr';
+
+export function createBrowserSupabaseClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
+```
+
+### Requêtes
+- Toujours utiliser le SDK Supabase (pas de raw SQL côté app)
+- RLS activé sur toutes les tables
+- Service role key UNIQUEMENT dans les API routes (jamais côté client)
+- Typage auto via `supabase gen types typescript`
+
+## Stripe
+
+### Webhook handler pattern
+```typescript
+export async function POST(req: NextRequest) {
+  const body = await req.text();
+  const signature = req.headers.get('stripe-signature')!;
+  
+  const event = stripe.webhooks.constructEvent(
+    body,
+    signature,
+    process.env.STRIPE_WEBHOOK_SECRET!
+  );
+
+  // Idempotence check
+  const existing = await checkIfProcessed(event.id);
+  if (existing) return NextResponse.json({ received: true });
+
+  switch (event.type) {
+    case 'payment_intent.succeeded':
+      await handlePaymentSuccess(event.data.object);
+      break;
+    // ...
+  }
+
+  return NextResponse.json({ received: true });
+}
+```

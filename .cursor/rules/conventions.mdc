@@ -1,0 +1,89 @@
+---
+description: Conventions globales pour le projet The Captain Boat
+globs: "**/*.{ts,tsx}"
+---
+
+# Conventions The Captain Boat
+
+## Stack
+- Next.js 16 (App Router) — TypeScript strict
+- Supabase (PostgreSQL + Auth + Storage)
+- Stripe (paiements)
+- Resend (emails transactionnels)
+- Tailwind CSS v4
+- Zod (validation)
+
+## Structure
+
+```
+app/(client)/     → Routes publiques (guest)
+app/(admin)/      → Routes admin (protégées)
+app/(validator)/  → Routes validateur QR
+app/api/          → API Routes (serveur)
+components/ui/    → Design system réutilisable
+components/       → Composants par domaine
+lib/              → Utilitaires, configs, SDK wrappers
+services/         → Logique métier (server-only)
+types/            → Types globaux partagés
+hooks/            → Custom React hooks
+```
+
+## Règles TypeScript
+- Jamais de `any` → utiliser `unknown` + type guard si nécessaire
+- Interfaces pour les objets, types pour les unions/intersections
+- `as const` pour les constantes littérales
+- Zod schema → inférer le type : `type X = z.infer<typeof xSchema>`
+
+## Composants React
+- Server Components par défaut
+- `"use client"` uniquement pour interactivité (state, events, hooks navigateur)
+- Props typées via interface dédiée au composant
+- Pas de `React.FC` → export default function Component(props: Props)
+
+## Nommage
+- Fichiers composants : PascalCase.tsx
+- Fichiers utilitaires/libs : camelCase.ts ou kebab-case.ts
+- API routes : kebab-case/ (dossiers)
+- Variables/fonctions : camelCase
+- Types/Interfaces : PascalCase
+- Constantes : UPPER_SNAKE_CASE
+- Tables DB : snake_case
+- Colonnes DB : snake_case
+
+## API Routes
+- Toujours valider les inputs avec Zod
+- Réponse format : `{ success: boolean, data?: T, error?: string }`
+- Pas de données sensibles dans les réponses client
+- Rate limiting sur toutes les routes publiques
+- Vérifier les webhooks via signature (Stripe)
+
+## Paiement
+- Montants TOUJOURS en centimes (integer)
+- Calculs de prix UNIQUEMENT côté serveur
+- Ne jamais faire confiance aux montants envoyés par le client
+- Vérifier l'idempotence des webhooks (éviter double-traitement)
+
+## Design System
+- Navy primary : #1c355e
+- Gold CTA : #FFB800
+- Tailwind classes (pas de CSS modules)
+- Composants ui/ pour tout élément réutilisable
+- rounded-2xl pour les cards
+- font-sans (Geist) par défaut, font-serif (Playfair) pour accents
+
+## Erreurs
+- Try/catch structuré avec logging
+- Pas de `console.log` en production → logger structuré
+- Erreurs user-facing en français
+- Erreurs techniques en anglais (logs)
+
+## Imports
+- Absolus via `@/` (jamais de `../../..`)
+- Ordre : react → next → libs externes → @/ internes → relatifs
+- Pas d'import de barrel files (`index.ts`) sauf pour types/
+
+## Tests
+- Vitest pour tests unitaires (services/, lib/)
+- Playwright pour E2E (parcours checkout complet)
+- Coverage minimum 80% sur services/
+- Nommage : `*.test.ts` ou `*.spec.ts`

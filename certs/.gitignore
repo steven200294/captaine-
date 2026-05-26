@@ -1,0 +1,4 @@
+*.pem
+*.p12
+*.key
+service-account.json

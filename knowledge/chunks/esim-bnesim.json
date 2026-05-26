@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-05-25",
+    "total_chunks": 9,
+    "category": "esim",
+    "source": "BNESIM API Documentation (https://bnesim.readme.io)",
+    "description": "Documentation API BNESIM pour le provisioning eSIM - Fournisseur officiel The Captain Boat"
+  },
+  "chunks": [
+    {
+      "id": "esim-api-001",
+      "title": "BNESIM - Vue d'ensemble API",
+      "content": "BNESIM est le fournisseur eSIM de The Captain Boat. L'API v2.0 permet d'automatiser la création de licences, le provisioning d'eSIM et la gestion des forfaits data. Base URL : https://api.bnesim.com/v2.0. Authentification : Bearer token obtenu via le endpoint Login. Content-Type : multipart/form-data pour les POST.",
+      "category": "esim",
+      "subcategory": "overview",
+      "keywords": ["bnesim", "api", "esim", "fournisseur", "v2.0", "bearer token"],
+      "api_base_url": "https://api.bnesim.com/v2.0"
+    },
+    {
+      "id": "esim-api-002",
+      "title": "BNESIM - Authentification (Login)",
+      "content": "Premier appel obligatoire pour obtenir le bearer token. POST https://api.bnesim.com/v2.0/login. Paramètres : api_key (username opérateur), api_secret (password opérateur), type ('operator'). Réponse : success (boolean), token (bearer token pour tous les appels suivants), operator (détails opérateur). Le token doit être passé en header Authorization: Bearer {token} sur tous les appels suivants.",
+      "category": "esim",
+      "subcategory": "auth",
+      "keywords": ["login", "authentification", "token", "api_key", "api_secret", "operator"],
+      "endpoint": "POST /v2.0/login"
+    },
+    {
+      "id": "esim-api-003",
+      "title": "BNESIM - Activation de licence",
+      "content": "Crée une licence utilisateur dans le système BNESIM. C'est la première étape avant de pouvoir assigner une eSIM. POST https://api.bnesim.com/v2.0/enterprise/license/activation. Paramètres : name (requis, nom du titulaire), email (optionnel), phonenumber (optionnel). Réponse : success, activationTransaction (ID de transaction pour suivre l'activation). Ensuite utiliser l'endpoint Activation Transaction Status pour récupérer le license_cli.",
+      "category": "esim",
+      "subcategory": "license",
+      "keywords": ["licence", "activation", "license_cli", "transaction", "enterprise"],
+      "endpoint": "POST /v2.0/enterprise/license/activation"
+    },
+    {
+      "id": "esim-api-004",
+      "title": "BNESIM - Statut de transaction d'activation",
+      "content": "Vérifie le statut d'une activation de licence ou d'eSIM. POST https://api.bnesim.com/v2.0/enterprise/activation-transaction/get-status. Paramètre : activationTransaction (ID reçu lors de l'activation). Réponse : activation_status ('OK', 'PENDING', 'FAILED'), license_cli (identifiant unique de la licence, présent si status OK). Le license_cli est essentiel pour toutes les opérations suivantes (assignation eSIM).",
+      "category": "esim",
+      "subcategory": "status",
+      "keywords": ["statut", "transaction", "activation_status", "license_cli", "pending", "ok"],
+      "endpoint": "POST /v2.0/enterprise/activation-transaction/get-status"
+    },
+    {
+      "id": "esim-api-005",
+      "title": "BNESIM - Liste des produits disponibles",
+      "content": "Récupère les forfaits eSIM disponibles pour une région/pays. POST https://api.bnesim.com/v2.0/enterprise/products/get-products. Paramètre : area (optionnel, code ISO2 pays ou identifiant région comme 'Europe'). Réponse : products[] avec id, name, price, volume (en MB, 1024=1GB), duration (jours, 180=pas d'expiration), region_names, sku, activation_type. Pour The Captain Boat : chercher les produits Europe 3Go (30 jours) et Europe 10Go (30 jours).",
+      "category": "esim",
+      "subcategory": "products",
+      "keywords": ["produits", "forfaits", "3go", "10go", "europe", "area", "volume", "duration"],
+      "endpoint": "POST /v2.0/enterprise/products/get-products"
+    },
+    {
+      "id": "esim-api-006",
+      "title": "BNESIM - Activation eSIM (provisioning)",
+      "content": "Achète et assigne une eSIM avec un forfait data à une licence. POST https://api.bnesim.com/v2.0/enterprise/simcard/add-esim. Paramètres : license_cli (requis, identifiant licence), product_id (requis, ID du forfait), scheduled_activation_date (optionnel). Réponse : success, activationTransaction. La facturation est immédiate. Après succès, utiliser Simcard Detail pour récupérer le QR code eSIM.",
+      "category": "esim",
+      "subcategory": "provisioning",
+      "keywords": ["activation", "esim", "provisioning", "add-esim", "product_id", "license_cli"],
+      "endpoint": "POST /v2.0/enterprise/simcard/add-esim"
+    },
+    {
+      "id": "esim-api-007",
+      "title": "BNESIM - Détails SIM card (récupérer QR code)",
+      "content": "Récupère les détails complets d'une eSIM provisionée, incluant le QR code d'activation. POST https://api.bnesim.com/v2.0/enterprise/simcard/get-detail. Réponse contient : simcard_id, iccid, qr_code (string), qr_code_image (URL image), smdp_address, matching_id, ios_universal_installation_link, simcard_status, products[] (forfaits actifs). Le qr_code_image est l'URL à inclure dans le PDF envoyé au client.",
+      "category": "esim",
+      "subcategory": "details",
+      "keywords": ["détails", "qr_code", "iccid", "qr_code_image", "smdp_address", "installation"],
+      "endpoint": "POST /v2.0/enterprise/simcard/get-detail"
+    },
+    {
+      "id": "esim-api-008",
+      "title": "BNESIM - Régions et pays disponibles",
+      "content": "Récupère la liste complète des régions et pays couverts. GET https://api.bnesim.com/v2.0/enterprise/products/get-regions-countries. Réponse : areas[] avec country_name et country_iso2. Inclut des régions continentales (Africa, Asia, Europe), des groupements spéciaux (Global, Mini Global), et tous les pays individuels. Pour The Captain Boat : utiliser 'Europe' comme area pour les forfaits UK & Europe.",
+      "category": "esim",
+      "subcategory": "regions",
+      "keywords": ["régions", "pays", "couverture", "europe", "global", "iso2"],
+      "endpoint": "GET /v2.0/enterprise/products/get-regions-countries"
+    },
+    {
+      "id": "esim-api-009",
+      "title": "BNESIM - Flux complet de provisioning eSIM",
+      "content": "Flux complet pour provisionner une eSIM après paiement client : 1. Login → obtenir token. 2. License Activation → créer licence avec nom/email client → obtenir activationTransaction. 3. Activation Transaction Status → poll jusqu'à 'OK' → obtenir license_cli. 4. Add eSIM → avec license_cli + product_id (3Go ou 10Go Europe) → obtenir activationTransaction eSIM. 5. Activation Transaction Status (eSIM) → poll jusqu'à 'OK'. 6. Simcard Detail → récupérer qr_code_image + instructions. 7. Inclure dans le PDF + email au client. Temps total estimé : 10-30 secondes.",
+      "category": "esim",
+      "subcategory": "workflow",
+      "keywords": ["flux", "workflow", "étapes", "provisioning", "complet", "automatisation"],
+      "estimated_time_seconds": 30
+    }
+  ]
+}

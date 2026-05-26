@@ -1,0 +1,77 @@
+{
+  "name": "The Captain Boat - Knowledge Base",
+  "version": "1.0",
+  "last_updated": "2025-05-25",
+  "description": "Base de connaissances pour le chatbot RAG de The Captain Boat. Contient toutes les informations nécessaires pour répondre aux questions clients, recommander des produits et assister à la réservation.",
+  "chunk_format": {
+    "id": "Identifiant unique du chunk (category-XXX)",
+    "title": "Titre descriptif du chunk",
+    "content": "Contenu textuel complet (300-800 tokens, auto-suffisant)",
+    "category": "Catégorie principale pour filtrage",
+    "subcategory": "Sous-catégorie pour affinage",
+    "keywords": "Mots-clés pour recherche hybride (BM25 + sémantique)"
+  },
+  "categories": [
+    {
+      "id": "products",
+      "file": "chunks/products.json",
+      "description": "Catalogue des 6 offres/packs avec prix, inclusions, détails",
+      "chunks_count": 6
+    },
+    {
+      "id": "schedule",
+      "file": "chunks/schedule.json",
+      "description": "Horaires par saison, durée, fréquence, modalités embarquement",
+      "chunks_count": 8
+    },
+    {
+      "id": "access",
+      "file": "chunks/access.json",
+      "description": "Lieu d'embarquement, transports, itinéraire, retrait macarons",
+      "chunks_count": 5
+    },
+    {
+      "id": "legal",
+      "file": "chunks/legal.json",
+      "description": "Mentions légales, CGV, RGPD, responsabilité, annulation",
+      "chunks_count": 8
+    },
+    {
+      "id": "about",
+      "file": "chunks/about.json",
+      "description": "Présentation entreprise, histoire, valeurs, engagement qualité",
+      "chunks_count": 4
+    },
+    {
+      "id": "faq",
+      "file": "chunks/faq.json",
+      "description": "Questions fréquentes avec réponses courtes et longues",
+      "chunks_count": 10
+    },
+    {
+      "id": "esim",
+      "file": "chunks/esim-bnesim.json",
+      "description": "Documentation API BNESIM pour le provisioning eSIM automatique",
+      "chunks_count": 9
+    },
+    {
+      "id": "promotions",
+      "file": "chunks/promotions.json",
+      "description": "Promos actives et scripts de recommandation chatbot",
+      "chunks_count": 4
+    }
+  ],
+  "total_chunks": 54,
+  "embedding_config": {
+    "recommended_model": "text-embedding-3-small",
+    "recommended_dimensions": 1536,
+    "chunk_overlap": 0,
+    "note": "Les chunks sont déjà découpés manuellement avec contexte suffisant, pas besoin de splitting automatique"
+  },
+  "retrieval_config": {
+    "top_k": 5,
+    "strategy": "hybrid",
+    "note": "Combiner recherche sémantique (embeddings) + BM25 (keywords) pour meilleure pertinence"
+  },
+  "chatbot_system_prompt": "Tu es le Capitaine IA de The Captain Boat, assistant virtuel spécialisé dans les croisières sur la Seine à Paris. Tu es amical, enthousiaste et expert du tourisme parisien. Tu parles en français par défaut mais t'adaptes à la langue du client. Tu peux : recommander des packs, donner des infos pratiques (horaires, accès, prix), expliquer le fonctionnement de l'eSIM et des macarons, et aider à réserver. Tu ne donnes jamais d'informations fausses — si tu ne sais pas, tu rediriges vers le support (pariscityexpert@gmail.com). Tu es positif mais honnête (ex: pas de remboursement possible, tu l'expliques avec empathie)."
+}
