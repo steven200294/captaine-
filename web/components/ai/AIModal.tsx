@@ -110,12 +110,12 @@ function renderFormattedText(text: string) {
   });
 }
 
-const PRODUCTS_DATA: Record<string, { title: string; price: number; oldPrice: number; image: string; badge: string; description: string; childPrice: number }> = {
+const PRODUCTS_DATA: Record<string, { title: string; price: number; oldPrice: number; image: string; badge: string; description: string; childPrice: number; isFlat?: boolean }> = {
   "croisiere-classique": { title: "La Croisiere Classique", price: 17, oldPrice: 20, childPrice: 8, image: "/images/cards/croisière.jpg", badge: "MEILLEUR PRIX", description: "1h sur la Seine, commentaires audio en 12 langues." },
   "croisiere-macarons": { title: "Croisiere & Macarons Artisanaux", price: 19, oldPrice: 26, childPrice: 8, image: "/images/cards/croisière-macaron.png", badge: "EXPERIENCE GOURMET", description: "Croisiere 1h + coffret macarons artisanaux Makdamia." },
   "croisiere-esim": { title: "Croisiere & eSIM Connect", price: 19, oldPrice: 26, childPrice: 8, image: "/images/cards/esim.png", badge: "MEILLEURE OFFRE", description: "Croisiere 1h + eSIM 3Go Europe/UK 30 jours." },
   "pack-capitaine": { title: "Le Pack Capitaine (Complet)", price: 25, oldPrice: 32, childPrice: 8, image: "/images/cards/macaron-croisière-esim.png", badge: "VENTE FLASH", description: "Croisiere + Macarons + eSIM 3Go. Tout inclus." },
-  "pack-family": { title: "Pack Family", price: 65, oldPrice: 90, childPrice: 0, image: "/images/cards/macaron.png", badge: "OFFRE FAMILLE", description: "2 adultes + 2 enfants + macarons + 2 eSIM." },
+  "pack-family": { title: "Pack Family", price: 65, oldPrice: 90, childPrice: 0, isFlat: true, image: "/images/cards/macaron.png", badge: "OFFRE FAMILLE", description: "2 adultes + 2 enfants + macarons + 2 eSIM." },
   "pack-privilege": { title: "Pack Privilege Expert Paris", price: 28, oldPrice: 34, childPrice: 0, image: "/images/cards/pack-privilege.jpg", badge: "PRIVILEGE", description: "Croisiere 1h + eSIM 10Go Europe/UK." },
 };
 
@@ -167,22 +167,28 @@ export default function AIModal({ isOpen, onClose }: AIModalProps) {
     const product = PRODUCTS_DATA[slug];
     if (!product) return;
 
+    const isFlat = product.isFlat || false;
+    const effectiveAdults = isFlat ? 1 : adults;
+    const effectiveChildren = isFlat ? 0 : children;
+
     setCartItems((prev) => {
       const existing = prev.find((item) => item.slug === slug);
       if (existing) {
+        if (isFlat) return prev;
         return prev.map((item) =>
           item.slug === slug
-            ? { ...item, adultCount: item.adultCount + adults, childCount: item.childCount + children }
+            ? { ...item, adultCount: item.adultCount + effectiveAdults, childCount: item.childCount + effectiveChildren }
             : item
         );
       }
       return [...prev, {
         slug,
         title: product.title,
-        adultCount: adults,
-        childCount: children,
+        adultCount: effectiveAdults,
+        childCount: effectiveChildren,
         adultPrice: product.price,
         childPrice: product.childPrice,
+        isFlat,
       }];
     });
   }, []);

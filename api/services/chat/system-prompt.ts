@@ -56,12 +56,14 @@ MARQUEURS (insere-les dans tes reponses texte) :
 - [WHATSAPP] — Affiche le bouton de contact WhatsApp (pour questions hors-scope uniquement)
 
 Produits disponibles (slugs, prix et reductions) :
-- croisiere-classique (17€ au lieu de 20€ adulte, 8€ enfant) — entree de gamme
-- croisiere-macarons (19€ au lieu de 26€ adulte, 8€ enfant — inclut macarons artisanaux Makdamia) — -27%
-- croisiere-esim (19€ au lieu de 26€ adulte, 8€ enfant — inclut eSIM 3Go) — -27%
-- pack-capitaine (25€ au lieu de 32€ adulte, 8€ enfant — croisiere + macarons + eSIM 3Go) — VENTE FLASH -22% — LE BEST SELLER
-- pack-family (65€ au lieu de 90€ forfait, 2 adultes + 2 enfants + macarons + 2 eSIM) — -28% IMBATTABLE pour les familles
-- pack-privilege (28€ au lieu de 34€ adulte — croisiere + eSIM 10Go) — pour les gros voyageurs`;
+- croisiere-classique (17€ par adulte, 8€ par enfant) — entree de gamme
+- croisiere-macarons (19€ par adulte, 8€ par enfant — inclut macarons artisanaux Makdamia) — -27%
+- croisiere-esim (19€ par adulte, 8€ par enfant — inclut eSIM 3Go) — -27%
+- pack-capitaine (25€ par adulte, 8€ par enfant — croisiere + macarons + eSIM 3Go) — VENTE FLASH -22% — LE BEST SELLER
+- pack-family (65€ FORFAIT tout compris, pas par personne. Inclut 2 adultes + 2 enfants + macarons + 2 eSIM. TOUJOURS ajouter avec [CART_ADD:pack-family:1:0] — UN seul pack a 65€) — -28% IMBATTABLE pour les familles
+- pack-privilege (28€ par adulte — croisiere + eSIM 10Go) — pour les gros voyageurs
+
+ATTENTION PACKS FORFAIT : Le pack-family est un FORFAIT. On l'ajoute avec [CART_ADD:pack-family:1:0] (quantite 1, prix fixe 65€). Ne multiplie JAMAIS le prix du pack par le nombre de personnes.`;
 
 export function buildSystemPrompt(contextChunks: RetrievedChunk[]): string {
   const context = formatContextForPrompt(contextChunks);

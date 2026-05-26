@@ -10,6 +10,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { Loader2, Lock, CheckCircle } from "lucide-react";
 import type { CartItem } from "./ChatCart";
+import { getCartTotal, getItemTotal } from "./ChatCart";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -113,9 +114,7 @@ export default function ChatPayment({ items, onSuccess, onCancel }: ChatPaymentP
   const [form, setForm] = useState({ email: "", firstName: "", lastName: "" });
   const [step, setStep] = useState<"info" | "pay">("info");
 
-  const total = items.reduce((sum, item) => {
-    return sum + item.adultCount * item.adultPrice + item.childCount * item.childPrice;
-  }, 0);
+  const total = getCartTotal(items);
 
   const handleCreateIntent = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,7 +134,7 @@ export default function ChatPayment({ items, onSuccess, onCancel }: ChatPaymentP
             productTitle: item.title,
             adultCount: item.adultCount,
             childCount: item.childCount,
-            totalPrice: item.adultCount * item.adultPrice * 100 + item.childCount * item.childPrice * 100,
+            totalPrice: getItemTotal(item) * 100,
           })),
         }),
       });
